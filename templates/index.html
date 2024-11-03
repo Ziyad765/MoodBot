@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodBot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            padding: 20px;
+        }
+        #conversation {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+        .user-message {
+            color: blue;
+            margin: 5px 0;
+        }
+        .bot-message {
+            color: green;
+            margin: 5px 0;
+        }
+        .fun-response {
+            color: orange;
+            margin: 5px 0;
+        }
+        #userQuery {
+            width: calc(100% - 120px);
+            padding: 10px;
+        }
+        #askButton {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #askButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>MoodBot</h1>
+    <div id="conversation">
+        {% for chat in conversation %}
+            <div class="user-message">You: {{ chat.user }}</div>
+            <div class="bot-message">MoodBot: {{ chat.bot }}</div>
+            <div class="fun-response">MoodBot (fun): {{ chat.fun }}</div>
+        {% endfor %}
+    </div>
+    
+    <input type="text" id="userQuery" placeholder="Type your question here..." />
+    <button id="askButton">Ask</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#askButton').click(function() {
+                var query = $('#userQuery').val();
+                if (query.trim() !== "") {
+                    $.post('/ask', { query: query }, function(data) {
+                        $('#conversation').append('<div class="user-message">You: ' + query + '</div>');
+                        $('#conversation').append('<div class="bot-message">MoodBot: ' + data.response + '</div>');
+                        $('#userQuery').val('');  // Clear input box
+                        $('#conversation').scrollTop($('#conversation')[0].scrollHeight);  // Scroll to the bottom
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
