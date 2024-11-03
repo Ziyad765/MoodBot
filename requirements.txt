@@ -1,0 +1,7 @@
+g4f
+pyttsx3
+SpeechRecognition
+opencv-python
+fer
+numpy
+tkinter
