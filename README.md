@@ -59,11 +59,11 @@ MoodBot is a fun and innovative AI companion I developed for the Useless Project
 ## 📸 Screenshots
 > *Showcasing MoodBot in action!*
 
-![Main Interface](https://github.com/Ziyad765/MoodBot/blob/main/Samples/Interface.png)
+![Main Interface](https://github.com/Ziyad765/MoodBot/blob/main/Samples/UI%201.png)
 ![User Interface](https://github.com/Ziyad765/MoodBot/blob/main/Samples/Interface.png)
 ![User Interface](https://github.com/Ziyad765/MoodBot/blob/main/Samples/UI%202.png)
-![Emotion Detection](https://github.com/Ziyad765/MoodBot/blob/main/Samples/UI%202.png)
-![Emotion Detection](https://github.com/Ziyad765/MoodBot/blob/main/Samples/UI%202.png)
+![Emotion Detection](https://github.com/Ziyad765/MoodBot/blob/main/Samples/face%20detection%201.png)
+![Emotion Detection](https://github.com/Ziyad765/MoodBot/blob/main/Samples/face%20detection%202.png)
 
 ---
 
