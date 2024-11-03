@@ -1,4 +1,5 @@
 
+MoodBot is a fun and innovative AI companion I developed for the Useless Projects Make-a-thon, organized by TinkerHub Campus Chapter. The hackathon challenged participants to create projects with a twist of humor and creativity, and that’s how MoodBot was born! It’s an AI-powered bot that not only chats but also detects your mood through facial expressions, offering witty and mood-based responses to brighten your day.
 
 # MoodBot: Your Hilarious AI Companion 🤖🎭
 
