@@ -8,12 +8,12 @@ import cv2
 import threading
 import random
 from collections import Counter
-from fer import FER  # Importing FER for emotion detection
+from fer import FER  
 
-# Initialize the speech engine
+
 engine = pyttsx3.init()
 
-# Message history
+
 messages = [
     {"role": "system", "content": "Your name is MoodBot. You are designed to respond to users' queries and detect their mood."},
     {"role": "system", "content": "Provide fun responses based on user mood."},
@@ -29,7 +29,7 @@ detector = FER()
 
 def GPT(message, mood):
     global messages
-    messages.append({'role': 'user', 'content': f"{message} (mood: {mood})"})  # Include mood in the message
+    messages.append({'role': 'user', 'content': f"{message} (mood: {mood})"})  
 
     providers = [
         g4f.Provider.HuggingChat,
@@ -82,17 +82,17 @@ def detect_mood():
     cap = cv2.VideoCapture(0)
     emotions_detected = []
 
-    for _ in range(10):  # Capture 10 frames
+    for _ in range(10):  
         ret, frame = cap.read()
         if ret:
             emotions = detector.detect_emotions(frame)
             if emotions:
-                # Get the dominant emotion from the detected emotions
+
                 dominant_emotion = max(emotions[0]['emotions'], key=emotions[0]['emotions'].get)
                 emotions_detected.append(dominant_emotion)
                 print(f"Detected emotion: {dominant_emotion}")
 
-        # Optional: Show the webcam feed
+
         cv2.imshow('Face Detection', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -100,7 +100,7 @@ def detect_mood():
     cap.release()
     cv2.destroyAllWindows()
 
-    # Determine the most frequent emotion
+
     if emotions_detected:
         most_common_emotion = Counter(emotions_detected).most_common(1)[0][0]
     else:
@@ -110,16 +110,16 @@ def detect_mood():
     return most_common_emotion
 
 def handle_query(query):
-    # Capture mood using facial expression recognition
+
     mood = detect_mood()
 
-    # Get response from GPT
+
     response = GPT(query, mood)
 
-    # Select fun response based on mood
+
     fun_response = random.choice(fun_responses.get(mood, ["I'm here for you!"]))
     
-    # Speak and return the response
+
     speak(response)
     speak(fun_response)
     return response, fun_response
@@ -128,7 +128,7 @@ def send_query(query):
     if query.strip():
         response, fun_response = handle_query(query)
         
-        # Update the response box with the query and responses
+        
         response_box.configure(state=tk.NORMAL)
         response_box.insert(tk.END, f"You: {query}\n", 'user')
         response_box.insert(tk.END, f"MoodBot: {response}\n", 'bot')
@@ -136,72 +136,72 @@ def send_query(query):
         response_box.configure(state=tk.DISABLED)
         response_box.see(tk.END)
 
-# Start the listening thread
+
 def listen_thread():
     while True:
         user_query = listen()
         if user_query:
             send_query(user_query)
 
-# Set up the UI
+
 window = tk.Tk()
 window.title("MoodBot")
 window.geometry("450x700")
 window.configure(bg="#2E3440")
 
-# Custom styles
+
 style = ttk.Style()
 style.configure("TButton", font=("Helvetica", 10), foreground="#D8DEE9", background="#5E81AC")
 style.configure("TLabel", font=("Helvetica", 12), foreground="#ECEFF4", background="#2E3440")
 style.configure("TEntry", font=("Helvetica", 12), foreground="#3B4252", padding=5)
 
-# Title label
+
 title_label = ttk.Label(window, text="MoodBot", font=("Helvetica", 20, "bold"), background="#5E81AC", foreground="#ECEFF4")
 title_label.pack(pady=10)
 
-# Create a scrolled text area for responses
+
 response_box = scrolledtext.ScrolledText(window, wrap=tk.WORD, state=tk.DISABLED, bg="#3B4252", fg="#D8DEE9", font=("Helvetica", 12))
 response_box.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
 response_box.tag_config('user', foreground="#A3BE8C", font=("Helvetica", 12, "bold"))
 response_box.tag_config('bot', foreground="#BF616A", font=("Helvetica", 12, "italic"))
 response_box.tag_config('fun', foreground="#EBCB8B", font=("Helvetica", 12))
 
-# Input box for text queries
+
 input_frame = ttk.Frame(window)
 input_frame.pack(pady=5, fill=tk.X)
 input_box = ttk.Entry(input_frame, width=50)
 input_box.pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
 
-# Send button for text input
+
 send_button = ttk.Button(input_frame, text="Send", command=lambda: send_query(input_box.get()))
 send_button.pack(side=tk.RIGHT, padx=5)
 
-# Function to quit the application
+
 def quit_application():
-    cv2.destroyAllWindows()  # Ensure camera window is closed
+    cv2.destroyAllWindows()  
     window.quit()
 
-# Stop all operations
+
 def stop_all():
     cv2.destroyAllWindows()
-    window.quit()  # Quit the application
+    window.quit() 
 
-# Add a button to stop all operations
+
 stop_button = ttk.Button(window, text="Stop All", command=stop_all)
 stop_button.pack(pady=10)
 
-# Bind the quit function to the 'q' key
+
 window.bind('<q>', lambda event: quit_application())
 
-# Handle Enter key to send the input
+
 def on_enter(event):
     send_query(input_box.get())
-    input_box.delete(0, tk.END)  # Clear the input box after sending
+    input_box.delete(0, tk.END)  
 
-# Bind the Enter key to the input box
+
 input_box.bind('<Return>', on_enter)
 
-# Start listening in a separate thread
+
 threading.Thread(target=listen_thread, daemon=True).start()
 
 window.mainloop()
