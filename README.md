@@ -68,7 +68,7 @@ For Software:
 *This screenshot highlights MoodBot's real-time emotion detection feature.*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
+![Workflow](https://github.com/Ziyad765/MoodBot/blob/main/Samples/moodbot_workflow_diagram.png)
 *This diagram illustrates the architecture of the MoodBot application.*
 
 
