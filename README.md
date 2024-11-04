@@ -76,7 +76,7 @@ For Software:
 # Build Photos
 
 
-![https://github.com/Ziyad765/MoodBot/blob/main/Samples/Interface.png](Add photo of final product here)
+![](https://github.com/Ziyad765/MoodBot/blob/main/Samples/Interface.png)
 *This image showcases the final build of MoodBot.*
 
 ### Project Demo
