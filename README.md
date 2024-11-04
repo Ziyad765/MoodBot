@@ -3,10 +3,10 @@
 # MoodBot 🎯
 
 ## Basic Details
-### Team Name: TinkerHub MoodBot Team
+### Team Name: Ziyad Ahammed's Team
 
 ### Team Members
-- Team Lead: Ziyad - Government Engineering College, Kozhikode
+- Team Lead: Ziyad Ahammed - Government Engineering College, Kozhikode
 
 ### Project Description
 MoodBot is an innovative AI companion developed for the Useless Projects Make-a-thon by TinkerHub. This fun bot detects user moods through facial expressions and voice input, offering  mood-based responses that bring joy and laughter to every interaction.
@@ -70,10 +70,9 @@ For Software:
 
 
 # Build Photos
-![Components](Add photo of your components here)
-*This image lists all the components used in the project.*
 
-![Final](Add photo of final product here)
+
+![https://github.com/Ziyad765/MoodBot/blob/main/Samples/Interface.png](Add photo of final product here)
 *This image showcases the final build of MoodBot.*
 
 ### Project Demo
@@ -85,7 +84,7 @@ For Software:
 [https://github.com/Ziyad765/MoodBot/blob/main/Samples/working%20video%20(1).mp4]
 
 ## Team Contributions
-- Ziyad: Lead developer, facial recognition integration, voice input functionality, and UI design.
+- Ziyad Ahammed: Lead developer, facial recognition integration, voice input functionality, and UI design.
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
