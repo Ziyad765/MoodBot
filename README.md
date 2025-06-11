@@ -6,7 +6,7 @@
 ### Team Name: Ziyad Ahammed's Team
 
 ### Team Members
-- Team Lead: Ziyad Ahammed - Government Engineering College, Kozhikode
+- Team Lead: Ziyad Ahammed - Government Engineering College, Kozhikode 
 
 ### Project Description
 Introducing MoodBot: the AI companion you never knew you didn't need! Born out of sheer curiosity for the Useless Projects Make-a-thon by TinkerHub, MoodBot takes the concept of virtual companionship to a whole new level of absurdity. It uses facial recognition and voice input to detect your mood—because why not? Instead of providing practical support, it delights in offering mood-based jokes and quirky responses that may or may not brighten your day. MoodBot proves that sometimes, the most entertaining projects are the ones that serve no real purpose at all—just a dose of laughter in a tech-driven world!
